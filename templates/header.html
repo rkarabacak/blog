@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+
+
+        <a class="navbar-brand" href="{% url 'home' %}">Recep KARABACAK Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+         <!--<ul class="nav navbar-nav navbar-right">-->
+             {% if request.user.is_authenticated %}
+                <li class="nav-item active"> <a class="nav-link" href="{% url 'post:create' %}" >Yazı Ekle <span class="sr-only">(current)</span> </a></li>
+             {% endif %}
+              <li class="nav-item active"> <a class="nav-link" href="{% url 'home' %}">Ana Sayfa <span class="sr-only">(current)</span></a> </li>
+              <li class="nav-item active"> <a class="nav-link" href="{% url 'post:index' %}">Blog</a> </li>
+              {% if not request.user.is_authenticated %}
+                <li class="nav-item active"> <a class="nav-link" href="{% url 'accounts:register' %}">Üye Ol</a> </li>
+                <li class="nav-item active"> <a class="nav-link" href="{% url 'accounts:login' %}">Giriş</a> </li>
+              {% else %}
+                 <li class="nav-item active"> <a class="nav-link" href="{% url 'accounts:logout' %}">Çıkış</a> </li>
+              {% endif %}
+            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+               </div>
+          </li>
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+          <!--</li>-->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" value="{{ request.GET.q }}"aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ara</button>
+        </form>
+      </div>
+   </div>
+</nav>

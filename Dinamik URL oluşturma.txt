@@ -1,0 +1,11 @@
+urlpatterns = [
+
+    url(r'^index/$', post_index), # yeni bir sayfa oluþturduk
+    url(r'^(?P<id>\d+)/$', post_detail), # duzenli ifade kullanarak birden fazla deðiþken rakam almasýný saðladýk
+    # " r' " = duzenli ifade olduðunu belirtir " ^ " = düzenli ifadenin baþladýðýný " $ "= düzenli ifadenin bittiðini
+    # " ?P<id> " = parametre taþýmak için "id" adýnda bir arguman tanýmladýk " ?P " = parametre 
+    # " (\d+) " = \d bir rakam olduðunu " + " yanýna baþka rakam gelebileceðini belirttik
+    url(r'^create/$', post_create),
+    url(r'^update/$', post_update),
+    url(r'^delete/$', post_delete),
+    ]

@@ -1,0 +1,10 @@
+Proje Dizini:
+cd Programlama\Pyton\Projeler\Web\blog
+	sanala eriþmek
+	venv\Scripts\activate
+		web sunucusunu çalýþtýrmak:
+		python manage.py runserver
+
+
+
+		
